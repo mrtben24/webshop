@@ -6,19 +6,19 @@
 </head>
 <body>
 
-<h2>Bence WEB-Bolt</h2>
-
-<p>Mit tegyünk a kosárba?</p>
-
-<select>
-
-	<option>1</option>
-	<option>2</option>
-	<option>3</option>
+	<h2>Bence WEB-Bolt</h2>
 	
-</select>
-
-<input type="submit">
-
+	<p>Mit tegyünk a kosárba?</p>
+	
+	<form action="/addToBasket" method="get">
+	
+		<select name="pId">
+			<option th:each="p : ${products}" th:text="${p.name}" th:value="${p.id}"></option>
+		</select>
+		
+		<input type="submit" value="Hozzáad">
+		
+	</form>
+	
 </body>
 </html>

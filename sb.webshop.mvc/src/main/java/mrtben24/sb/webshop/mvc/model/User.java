@@ -60,5 +60,24 @@ public class User {
 	}
 	
 	
+	public void addToUserProdIdList(int pId) {
+		
+		this.userProdIdList.add(pId);
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
