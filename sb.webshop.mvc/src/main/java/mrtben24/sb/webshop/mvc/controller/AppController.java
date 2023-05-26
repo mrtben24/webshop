@@ -26,6 +26,7 @@ public class AppController {
 		db.closeDb();
 		
 		model.addAttribute("products", products);
+		//[Product [id=1, name=kenyer, price=2332] legördülő menü feltöltése
 
 		return "index.html";
 	}
@@ -37,16 +38,15 @@ public class AppController {
 			) {
 		
 		showIndex(model);
+		Database db = new Database();
 		
-		User user = new User();
-		System.out.println(user.getUserProdIdList());
-		// hozzá kell adni egy listához a kiválasztott cuccokat
+		User user = db.getUserById(1);
 		
+		user.addToUserProdIdList(pId);
 		
+		model.addAttribute("user", user);
+		//User [id=1, name=geza, userProdIdList=[1]]
 		
-		
-		
-
 		return "index.html";
 	}
 	

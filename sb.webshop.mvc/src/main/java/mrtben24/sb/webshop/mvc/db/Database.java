@@ -12,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
 import mrtben24.sb.webshop.mvc.model.Product;
+import mrtben24.sb.webshop.mvc.model.User;
 
 public class Database {
 
@@ -43,7 +44,20 @@ public class Database {
 	return products;
 }
 	
-	
+	public User getUserById(int uId) {
+		
+		User user = null;
+		
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		
+		user = session.get(User.class, uId);
+		
+		tr.commit();
+		session.close();
+		
+		return user;
+	}
 	
 	
 	/*public Product getProductById(int productId) {
